@@ -68,7 +68,7 @@ This is the hardware and software required to run 3D Gaussian Splatting for Real
 ### Hardware
 - An NVIDIA GPU with 24GB VRAM* or more. Preferably an RTX 3090 or better. _*Future updates to these instructions will have options to modify training for GPUs with less VRAM such as a 3080._
 
-### Software (see Important update tio installation for order of installation)
+### Software (see Important update to installation for order of installation)
 This is the sofware dependencies you will need installed prior to installing the project. Many of these dependencies are shared with other NeRF projects.
 - __Git__ - You will need this to pull the code from GitHub. You can download it [here ](https://git-scm.com/downloads). Follow default installation instructions. You can test to see if you have it already installed by typing ```git --version``` into command prompt
 - __Conda__ - I recommend using [Anaconda](https://www.anaconda.com/download) because it's easy to install and manage environments in the future. [MiniConda](https://docs.conda.io/en/latest/miniconda.html) is a great lightweight alternative.
@@ -90,7 +90,7 @@ You will need to pull a copy of the code from GitHub. You will do this by using 
 
 The folder will download to the root of our command line prompt with the name "Gaussian-Splatting". Typically in your ```C:User/<username>``` folder. For example, on my PC the folder is now located at C:User/Jonat/Guassian-Splatting
 
-## Important update tio installation
+## Important update to installation
 
 The original installation instructions didn't work for me, I found this post that solved my issues:
 https://github.com/graphdeco-inria/gaussian-splatting/issues/332
