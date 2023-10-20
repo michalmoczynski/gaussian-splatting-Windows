@@ -68,7 +68,7 @@ This is the hardware and software required to run 3D Gaussian Splatting for Real
 ### Hardware
 - An NVIDIA GPU with 24GB VRAM* or more. Preferably an RTX 3090 or better. _*Future updates to these instructions will have options to modify training for GPUs with less VRAM such as a 3080._
 
-### Software
+### Software (see Important update tio installation for order of installation)
 This is the sofware dependencies you will need installed prior to installing the project. Many of these dependencies are shared with other NeRF projects.
 - __Git__ - You will need this to pull the code from GitHub. You can download it [here ](https://git-scm.com/downloads). Follow default installation instructions. You can test to see if you have it already installed by typing ```git --version``` into command prompt
 - __Conda__ - I recommend using [Anaconda](https://www.anaconda.com/download) because it's easy to install and manage environments in the future. [MiniConda](https://docs.conda.io/en/latest/miniconda.html) is a great lightweight alternative.
@@ -89,6 +89,44 @@ You will need to pull a copy of the code from GitHub. You will do this by using 
 ```git clone https://github.com/graphdeco-inria/gaussian-splatting --recursive```
 
 The folder will download to the root of our command line prompt with the name "Gaussian-Splatting". Typically in your ```C:User/<username>``` folder. For example, on my PC the folder is now located at C:User/Jonat/Guassian-Splatting
+
+## Important update tio installation
+
+The original installation instructions didn't work for me, I found this post that solved my issues:
+https://github.com/graphdeco-inria/gaussian-splatting/issues/332
+
+PREPARATION (Windows11 with rtx3090)
+installed git (as readme)
+installed conda (as readme)
+installed visual studio 2019 community (selecting the "Desktop Development with C++")
+installed Cuda toolkit v.11.7 from the Nvidia website
+installed COLMAP (as readme)
+installed ImageMagik (as readme)
+installed FFMPEG (as readme)
+
+I git cloned the gaussian-splatting repository to a location of choice by opening cmd to the folder that I wanted to use
+then ran
+git clone https://github.com/graphdeco-inria/gaussian-splatting --recursive
+
+CONDA ENVIRONMENT
+I created the environment in conda using:
+conda create -n gaussian_splatting python=3.7
+activated the environment
+conda activate gaussian_splatting
+I then installed the dependencies step by step
+conda install pytorch==1.13.1 torchvision==0.14.1 torchaudio==0.13.1 pytorch-cuda=11.7 -c pytorch -c nvidia
+I changed directory to the directory where I cloned the repository with cd
+then I ran
+pip install submodules/diff-gaussian-rasterization
+and
+pip install submodules/simple-knn
+also I had to install manually the plyfile with
+pip install plyfile
+and tqdm with
+pip install tqdm
+
+And that's it. I could keep on following the tutorial and avoid the error when running python train.py
+P.S. do not run the conda env create --file environment.yml or it breaks
 
 ## Installing the Optimizer
 
