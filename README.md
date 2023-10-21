@@ -92,21 +92,74 @@ The folder will download to the root of our command line prompt with the name "G
 
 ## Important update to installation
 
-The original installation instructions didn't work for me, I found this post that solved my issues:
+The original installation instructions didn't work for me, I found this post that solved my issues: 
 [https://github.com/graphdeco-inria/gaussian-splatting/issues/332](https://github.com/graphdeco-inria/gaussian-splatting/issues/332)
 
 PREPARATION (Windows11 with rtx3090)
 
 - installed git (as readme)
-- installed conda (as readme)  
+- installed conda (as readme)
 - installed visual studio 2019 community (selecting the "Desktop Development with C++")
-- installed Cuda toolkit v.11.7 from the Nvidia website  
+- installed Cuda toolkit v.11.7 from the Nvidia website
 - installed COLMAP (as readme)
-- installed ImageMagik (as readme)
+- installed ImageMagik (as readme)  
 - installed FFMPEG (as readme)
 
 I git cloned the gaussian-splatting repository to a location of choice by opening cmd to the folder that I wanted to use
 then ran
+
+\`\`\`
+git clone https://github.com/graphdeco-inria/gaussian-splatting --recursive
+\`\`\`
+
+CONDA ENVIRONMENT
+
+I created the environment in conda using:
+
+\`\`\`
+conda create -n gaussian_splatting python=3.7
+\`\`\`
+
+activated the environment
+
+\`\`\`
+conda activate gaussian_splatting
+\`\`\`
+
+I then installed the dependencies step by step
+
+\`\`\`
+conda install pytorch==1.13.1 torchvision==0.14.1 torchaudio==0.13.1 pytorch-cuda=11.7 -c pytorch -c nvidia
+\`\`\`
+
+I changed directory to the directory where I cloned the repository with cd  
+then I ran
+
+\`\`\`
+pip install submodules/diff-gaussian-rasterization
+\`\`\`
+
+and
+
+\`\`\`  
+pip install submodules/simple-knn
+\`\`\`
+
+also I had to install manually the plyfile with
+
+\`\`\`
+pip install plyfile
+\`\`\`
+
+and tqdm with
+
+\`\`\`
+pip install tqdm  
+\`\`\`
+
+And that's it. I could keep on following the tutorial and avoid the error when running python train.py
+
+P.S. do not run the conda env create --file environment.yml or it breaks
 
 ## Installing the Optimizer
 
