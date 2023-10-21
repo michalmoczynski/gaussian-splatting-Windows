@@ -72,9 +72,9 @@ This is the hardware and software required to run 3D Gaussian Splatting for Real
 This is the sofware dependencies you will need installed prior to installing the project. Many of these dependencies are shared with other NeRF projects.
 - __Git__ - You will need this to pull the code from GitHub. You can download it [here ](https://git-scm.com/downloads). Follow default installation instructions. You can test to see if you have it already installed by typing ```git --version``` into command prompt
 - __Conda__ - I recommend using [Anaconda](https://www.anaconda.com/download) because it's easy to install and manage environments in the future. [MiniConda](https://docs.conda.io/en/latest/miniconda.html) is a great lightweight alternative.
-- __CUDA Toolkit__ - this was tested with 11.8. Ensure you are not running 11.6 or 12+. You can download CUDA Toolkit [here](https://developer.nvidia.com/cuda-toolkit-archive) You can check which version of CUDA Toolkit you have installed by typing ```nvcc --version``` into command prompt.
 - __Visual Studio 2019 or newer__ - You can download and install it [here](https://visualstudio.microsoft.com/vs/older-downloads/). Make sure you add __Desktop Development with C++__ when installing <br>
 ![VS_Option](assets/VS_Option.png)
+- __CUDA Toolkit__ - this was tested with 11.8. Ensure you are not running 11.6 or 12+. You can download CUDA Toolkit [here](https://developer.nvidia.com/cuda-toolkit-archive) You can check which version of CUDA Toolkit you have installed by typing ```nvcc --version``` into command prompt.
 - __COLMAP__ - Use the Windows binary, it's easy! You can download it [here](https://github.com/colmap/colmap/releases)
 - __ImageMagik__ - This is for preparing your images. Download it [here](https://imagemagick.org/script/download.php)
 - __FFMPEG__ - Use this to extract images from video. Download it [here](https://ffmpeg.org/download.html)
@@ -161,24 +161,6 @@ And that's it. I could keep on following the tutorial and avoid the error when r
 
 P.S. do not run the conda env create --file environment.yml or it breaks
 
-## Installing the Optimizer
-
-To install the code that you pulled from GitHub, you will need to create a Conda environment that includes all of the compailed code for running. Open command prompt and enter these lines below one at a time. The second line will compile the code which can take 10 minutes or longer. The last line will "activate" the conda environment. You will need to enter ```conda activate gaussian_splatting``` at the start of each session you plan to optimize 3D Gaussian Splatting.
-
-```shell
-SET DISTUTILS_USE_SDK=1
-conda env create --file environment.yml
-conda activate gaussian_splatting
-```
-Please note that this process assumes that you have CUDA SDK **11** installed, not **12**. For modifications, see below.
-
-Tip: Downloading packages and creating a new environment with Conda can require a significant amount of disk space. By default, Conda will use the main system hard drive. You can avoid this by specifying a different package download location and an environment on a different drive:
-
-```shell
-conda config --add pkgs_dirs <Drive>/<pkg_path>
-conda env create --file environment.yml --prefix <Drive>/<env_path>/gaussian_splatting
-conda activate <Drive>/<env_path>/gaussian_splatting
-```
 
 ## Preparing Images From Your Own Scenes
 
