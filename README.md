@@ -108,54 +108,54 @@ PREPARATION (Windows11 with rtx3090)
 I git cloned the gaussian-splatting repository to a location of choice by opening cmd to the folder that I wanted to use
 then ran
 
-\`\`\`
+```shell
 git clone https://github.com/graphdeco-inria/gaussian-splatting --recursive
-\`\`\`
+```
 
 CONDA ENVIRONMENT
 
 I created the environment in conda using:
 
-\`\`\`
+```shell
 conda create -n gaussian_splatting python=3.7
-\`\`\`
+```
 
 activated the environment
 
-\`\`\`
+```shell
 conda activate gaussian_splatting
-\`\`\`
+```
 
 I then installed the dependencies step by step
 
-\`\`\`
+```shell
 conda install pytorch==1.13.1 torchvision==0.14.1 torchaudio==0.13.1 pytorch-cuda=11.7 -c pytorch -c nvidia
-\`\`\`
+```
 
 I changed directory to the directory where I cloned the repository with cd  
 then I ran
 
-\`\`\`
+```shell
 pip install submodules/diff-gaussian-rasterization
-\`\`\`
+```
 
 and
 
-\`\`\`  
+```shell
 pip install submodules/simple-knn
-\`\`\`
+```
 
 also I had to install manually the plyfile with
 
-\`\`\`
+```shell
 pip install plyfile
-\`\`\`
+```
 
 and tqdm with
 
-\`\`\`
+```shell
 pip install tqdm  
-\`\`\`
+```
 
 And that's it. I could keep on following the tutorial and avoid the error when running python train.py
 
